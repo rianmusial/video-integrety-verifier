@@ -3,11 +3,11 @@ package com.rianmusial.videoIntegretyVerifier.imageComparer;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
 import com.rianmusial.videoIntegretyVerifier.ImageComparer;
+import com.rianmusial.videoIntegretyVerifier.util.ResourceUtil;
 
 public abstract class ImageComparerCommon {
 	
@@ -33,10 +33,8 @@ public abstract class ImageComparerCommon {
 	}
 	
 	private BufferedImage getBufferedImageFromFile(String filename) throws IOException {
-		URL resourceUrl = ImageComparerCommon.class.getClassLoader().getResource(filename);
-		File f = new File(resourceUrl.getFile());
-		BufferedImage bi = ImageIO.read(f);
-		return bi;
+		File f = ResourceUtil.getResource(filename);
+		return ImageIO.read(f);
 	}
 
 }
