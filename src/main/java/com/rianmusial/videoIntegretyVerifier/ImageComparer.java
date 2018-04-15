@@ -59,9 +59,9 @@ public class ImageComparer {
 	
 	private double getLuminance(Color c) {
 		double luminance = 0d;
-		luminance += (	c.getRed()		/255d) 	* 	RED_LUMINANCE;
-		luminance += (	c.getGreen()	/255d) 	* 	GREEN_LUMINANCE;
-		luminance += (	c.getBlue()		/255d) 	* 	BLUE_LUMINANCE;
+		luminance += (c.getRed()   /255d) * RED_LUMINANCE;
+		luminance += (c.getGreen() /255d) * GREEN_LUMINANCE;
+		luminance += (c.getBlue()  /255d) * BLUE_LUMINANCE;
 		return luminance;
 	}
 	
