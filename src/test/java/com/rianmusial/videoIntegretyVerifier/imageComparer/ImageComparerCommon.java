@@ -3,7 +3,6 @@ package com.rianmusial.videoIntegretyVerifier.imageComparer;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
@@ -17,6 +16,7 @@ public abstract class ImageComparerCommon {
 	protected BufferedImage blackImage;
 	protected BufferedImage whiteImage;
 	protected BufferedImage greyImage;
+	protected BufferedImage smallImage;
 	
 	protected static double NUMBER_OF_PIXELS_IN_720P = 921_600d;
 
@@ -25,6 +25,7 @@ public abstract class ImageComparerCommon {
 			blackImage = getBufferedImageFromFile("image/black.png");
 			whiteImage = getBufferedImageFromFile("image/white.png");
 			greyImage  = getBufferedImageFromFile("image/grey.png");
+			smallImage = getBufferedImageFromFile("image/small.png");
 		}
 		catch (IOException e) {
 			throw new RuntimeException(e);

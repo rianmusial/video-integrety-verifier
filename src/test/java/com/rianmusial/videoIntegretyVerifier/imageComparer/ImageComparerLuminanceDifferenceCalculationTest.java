@@ -11,7 +11,7 @@ import com.rianmusial.videoIntegretyVerifier.util.ReflectionUtil;
 import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
-public class LuminanceDifferenceCalculationTest extends ImageComparerCommon {
+public class ImageComparerLuminanceDifferenceCalculationTest extends ImageComparerCommon {
 
 	@Test
 	public void luminanceDifferenceBetweenIdenticalImagesTest() throws Exception {

@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.util.concurrent.atomic.DoubleAdder;
 import java.util.stream.IntStream;
 
+import com.rianmusial.videoIntegretyVerifier.exception.IllegalComparisonException;
+
 public class ImageComparer {
 	
 	private static final double RED_LUMINANCE = 0.2126d;
@@ -15,11 +17,21 @@ public class ImageComparer {
 	 * Calculates Peak Signal Noise Ratio between the provided images
 	 */
 	public double getPSNR(BufferedImage image1, BufferedImage image2) {
+		verifyImageSizesAreTheSame(image1, image2);		
 		double rSquared = Math.pow(1, 2);
 		double mse = getMeanSquaredError(image1, image2);
 		return 10D * Math.log10(rSquared/ mse);
 	}
 	
+	private void verifyImageSizesAreTheSame(BufferedImage image1, BufferedImage image2) {
+		int height1 = image1.getHeight();
+		int height2 = image2.getHeight();
+		int width1 = image1.getWidth();
+		int width2 = image2.getWidth();
+		if (height1 != height2 || width1 != width2)
+			throw new IllegalComparisonException("Comparing images with different resolutions is not supported");
+	}
+
 	private double getMeanSquaredError(BufferedImage image1, BufferedImage image2) {
 		double totalLuminanceDifference = getTotalLuminanceDifference(image1, image2);
 		long totalPixels = image1.getHeight() * image1.getWidth();

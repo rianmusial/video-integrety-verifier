@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.rianmusial.videoIntegretyVerifier.ImageComparer;
+import com.rianmusial.videoIntegretyVerifier.exception.IllegalComparisonException;
 import com.rianmusial.videoIntegretyVerifier.util.ReflectionUtil;
 
 import junit.framework.Assert;
@@ -47,6 +48,11 @@ public class ImageComparerPeakSignalNoiseRatioTest extends ImageComparerCommon {
 		double mse = (double) meanErrorSquared.invoke(imageComparer, blackImage, greyImage);
 		double expectedPSNR = 10D * Math.log10(1 / mse);
 		Assert.assertEquals(expectedPSNR, psnr, 0.00000001d);
+	}
+	
+	@Test(expected = IllegalComparisonException.class)
+	public void PreventComparisonOfFilesWithDifferentResolutions() throws Exception {
+		imageComparer.getPSNR(whiteImage, smallImage);
 	}
 
 }

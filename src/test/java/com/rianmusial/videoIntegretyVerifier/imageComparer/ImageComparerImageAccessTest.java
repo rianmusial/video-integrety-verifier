@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.rianmusial.videoIntegretyVerifier.ImageComparer;
