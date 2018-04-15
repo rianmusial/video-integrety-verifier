@@ -17,6 +17,8 @@ public abstract class ImageComparerCommon {
 	protected BufferedImage blackImage;
 	protected BufferedImage whiteImage;
 	protected BufferedImage greyImage;
+	
+	protected static double NUMBER_OF_PIXELS_IN_720P = 921_600d;
 
 	public ImageComparerCommon() {
 		try {

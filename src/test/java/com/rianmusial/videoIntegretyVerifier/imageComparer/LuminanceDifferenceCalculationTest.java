@@ -12,8 +12,6 @@ import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
 public class LuminanceDifferenceCalculationTest extends ImageComparerCommon {
-	
-	private static double NUMBER_OF_PIXELS_IN_720P = 921_600d;
 
 	@Test
 	public void luminanceDifferenceBetweenIdenticalImagesTest() throws Exception {

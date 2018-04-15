@@ -11,6 +11,13 @@ public class ImageComparer {
 	private static final double GREEN_LUMINANCE = 0.7152d;
 	private static final double BLUE_LUMINANCE = 0.0722d;
 	
+	private double getMeanSquaredError(BufferedImage image1, BufferedImage image2) {
+		double totalLuminanceDifference = getTotalLuminanceDifference(image1, image2);
+		long totalPixels = image1.getHeight() * image1.getWidth();
+		double meanError = totalLuminanceDifference / totalPixels;
+		return Math.pow(meanError, 2);
+	}
+	
 	private double getTotalLuminanceDifference(BufferedImage image1, BufferedImage image2) {
 		DoubleAdder da = new DoubleAdder();
 		IntStream.range(0, image1.getHeight()).parallel().forEach(y -> {
