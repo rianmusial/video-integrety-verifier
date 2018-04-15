@@ -17,7 +17,7 @@ import com.rianmusial.videoIntegretyVerifier.util.ReflectionUtil;
 import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
-public class ImageComparerImageAccessTests {
+public class ImageComparerImageAccessTest {
 	
 	private ImageComparer imageComparer = new ImageComparer();
 
@@ -52,7 +52,7 @@ public class ImageComparerImageAccessTests {
 	}
 
 	private BufferedImage getBufferedImageFromFile(String s) throws IOException {
-		URL resourceUrl = ImageComparerImageAccessTests.class.getClassLoader().getResource(s);
+		URL resourceUrl = ImageComparerImageAccessTest.class.getClassLoader().getResource(s);
 		File f = new File(resourceUrl.getFile());
 		BufferedImage bi = ImageIO.read(f);
 		return bi;
