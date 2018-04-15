@@ -11,6 +11,15 @@ public class ImageComparer {
 	private static final double GREEN_LUMINANCE = 0.7152d;
 	private static final double BLUE_LUMINANCE = 0.0722d;
 	
+	/**
+	 * Calculates Peak Signal Noise Ratio between the provided images
+	 */
+	public double getPSNR(BufferedImage image1, BufferedImage image2) {
+		double rSquared = Math.pow(1, 2);
+		double mse = getMeanSquaredError(image1, image2);
+		return 10D * Math.log10(rSquared/ mse);
+	}
+	
 	private double getMeanSquaredError(BufferedImage image1, BufferedImage image2) {
 		double totalLuminanceDifference = getTotalLuminanceDifference(image1, image2);
 		long totalPixels = image1.getHeight() * image1.getWidth();
@@ -43,4 +52,5 @@ public class ImageComparer {
 		luminance += (	c.getBlue()		/255d) 	* 	BLUE_LUMINANCE;
 		return luminance;
 	}
+	
 }
