@@ -1,13 +1,8 @@
 package com.rianmusial.videoIntegretyVerifier.imageComparer;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.util.concurrent.ThreadLocalRandom;
-
-import javax.imageio.ImageIO;
 
 import org.junit.Test;
 
@@ -17,9 +12,7 @@ import com.rianmusial.videoIntegretyVerifier.util.ReflectionUtil;
 import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
-public class ImageComparerImageAccessTest {
-	
-	private ImageComparer imageComparer = new ImageComparer();
+public class ImageComparerImageAccessTest extends ImageComparerCommon {
 
 	@Test
 	public void imageLuminanceColorCalculationWhiteTest() throws Exception {
@@ -49,13 +42,6 @@ public class ImageComparerImageAccessTest {
 		Method m = ReflectionUtil.getMethod("getLuminanceAtPixel", ImageComparer.class, BufferedImage.class, int.class, int.class);
 		double luminance = (Double) m.invoke(imageComparer, bi, x, y);
 		Assert.assertEquals(0.49803921568627450980392156862745d, luminance, 0.0000001);
-	}
-
-	private BufferedImage getBufferedImageFromFile(String s) throws IOException {
-		URL resourceUrl = ImageComparerImageAccessTest.class.getClassLoader().getResource(s);
-		File f = new File(resourceUrl.getFile());
-		BufferedImage bi = ImageIO.read(f);
-		return bi;
 	}
 
 }
