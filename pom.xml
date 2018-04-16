@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.rianmusial</groupId>
-	<artifactId>video-integrety-verifier</artifactId>
+	<artifactId>video-integrity-verifier</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>video-integrety-verifier</name>
+	<name>video-integrity-verifier</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
